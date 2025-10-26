@@ -1,0 +1,81 @@
+/* Container for the toggle and label */
+.theme-toggle-container {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem; /* Space from previous item */
+}
+
+/* Basic Switch Styles */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px; /* Width of the switch */
+  height: 24px; /* Height of the switch */
+}
+
+/* Hide default HTML checkbox */
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider track */
+.theme-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc; /* Default background for light theme */
+  transition: background-color 0.4s;
+}
+[data-theme='dark'] .theme-slider {
+    background-color: #555; /* Darker track in dark mode */
+}
+
+
+/* The slider knob */
+.theme-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px; /* Height of the knob */
+  width: 18px; /* Width of the knob */
+  left: 3px;   /* Position from left */
+  bottom: 3px; /* Position from bottom */
+  background-color: white; /* Knob color */
+  transition: transform 0.4s;
+}
+
+/* Change track color when checked */
+input:checked + .theme-slider {
+  background-color: var(--primary-color); /* Use theme color when checked */
+}
+/* Add focus style */
+input:focus + .theme-slider {
+  box-shadow: 0 0 2px var(--primary-color);
+}
+
+/* Move knob to the right when checked */
+input:checked + .theme-slider:before {
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.theme-slider.round {
+  border-radius: 24px; /* Make the track rounded */
+}
+
+.theme-slider.round:before {
+  border-radius: 50%; /* Make the knob circular */
+}
+
+/* Optional: Label (Sun/Moon icon) */
+.theme-label {
+  margin-left: 0.5rem; /* Space between switch and icon */
+  font-size: 1.2rem; /* Icon size */
+  color: white; /* Match navbar text */
+  cursor: default; /* Indicate it's not clickable */
+  line-height: 1; /* Align icon vertically better */
+}

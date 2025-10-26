@@ -1,0 +1,35 @@
+.kpi-widget {
+  background-color: #fff; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  padding: 1rem 1.2rem; /* Spacing inside the widget */
+  display: flex; /* Arrange icon and text side-by-side */
+  align-items: center; /* Vertically center icon and text */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* Subtle shadow */
+  border: 1px solid #eee; /* Light border */
+}
+
+.kpi-icon {
+  font-size: 2rem; /* Icon size */
+  margin-right: 1rem; /* Space between icon and text */
+  color: var(--primary-color, #2c3e50); /* Use primary color for icon */
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.kpi-content {
+  display: flex;
+  flex-direction: column; /* Stack value and title vertically */
+  align-items: flex-start; /* Align text to the left */
+}
+
+.kpi-value {
+  font-size: 1.5rem; /* Large font for the value */
+  font-weight: 600; /* Bold value */
+  color: #333; /* Dark text color */
+  line-height: 1.2; /* Adjust line spacing */
+}
+
+.kpi-title {
+  font-size: 0.85rem; /* Smaller font for the title */
+  color: #6c757d; /* Grey text color for title */
+  margin-top: 0.2rem; /* Space between value and title */
+}

@@ -1,0 +1,141 @@
+.prediction-page h2 {
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+.prediction-page > p { /* Target direct paragraph child for description */
+    margin-bottom: 2rem;
+    color: var(--text-muted-color);
+    font-size: 0.95rem;
+}
+
+/* Style sections for Train/Predict */
+.prediction-section {
+    background-color: var(--hover-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+}
+.prediction-section h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* Base form group styling */
+.prediction-section .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem; /* Space below each group */
+}
+.prediction-section label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+.prediction-section select,
+.prediction-section input {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: var(--surface-color); /* Use surface color for inputs */
+  color: var(--text-color);
+  box-sizing: border-box;
+}
+.prediction-section select:disabled,
+.prediction-section input:disabled {
+    background-color: var(--hover-bg-color); /* Lighter disabled background */
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Button styling */
+.prediction-section button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+  margin-top: 0.5rem; /* Add some space above button */
+}
+.prediction-section button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+.prediction-section button:hover:not(:disabled) {
+   opacity: 0.9;
+}
+
+/* Specific button colors */
+.train-button {
+    background-color: var(--primary-color); /* Use primary color for train */
+}
+.train-button:hover:not(:disabled) {
+    background-color: color-mix(in srgb, var(--primary-color) 85%, black); /* Darker */
+}
+
+.prediction-form button {
+    background-color: var(--secondary-color); /* Use secondary color for predict */
+}
+.prediction-form button:hover:not(:disabled) {
+    background-color: #2980b9;
+}
+
+
+/* Prediction form layout (horizontal) */
+.prediction-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+.prediction-form .form-group {
+    flex: 1; /* Allow groups to grow */
+    min-width: 150px;
+    margin-bottom: 0; /* Remove bottom margin for horizontal layout */
+}
+.prediction-form button {
+    align-self: flex-end; /* Align button to bottom */
+    flex-shrink: 0; /* Prevent button shrinking */
+    margin-top: 0; /* Remove top margin */
+}
+
+/* Error/Message styles */
+.prediction-error, .prediction-message {
+  border: 1px solid;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 1.5rem 0; /* Space around messages */
+  font-size: 0.95rem;
+}
+.prediction-error {
+  color: var(--danger-color);
+  background-color: color-mix(in srgb, var(--danger-color) 15%, transparent);
+  border-color: var(--danger-color);
+}
+.prediction-message {
+  color: var(--success-color);
+  background-color: color-mix(in srgb, var(--success-color) 15%, transparent);
+  border-color: var(--success-color);
+}
+
+/* Result styles */
+.prediction-result {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--hover-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+.prediction-result h3 { margin-top: 0; color: var(--primary-color); }
+.prediction-result p { color: var(--text-color); font-size: 1rem; line-height: 1.5; }
+.prediction-result strong { color: var(--success-color); } /* Highlight prediction */
+.prediction-result .disclaimer { font-size: 0.85rem; color: var(--text-muted-color); margin-top: 1rem; font-style: italic; }

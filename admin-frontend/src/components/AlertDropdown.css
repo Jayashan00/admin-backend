@@ -1,0 +1,112 @@
+/* Styling for the dropdown container */
+.alert-dropdown {
+  position: absolute;
+  top: 100%; /* Position below the navbar item */
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 350px; /* Adjust width as needed */
+  max-height: 400px; /* Limit height */
+  overflow: hidden; /* Hide overflow until list scrolls */
+  z-index: 1010; /* Ensure it's above other navbar content */
+  display: flex;
+  flex-direction: column;
+}
+
+.alert-dropdown-header {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert-dropdown-header h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+.alert-dropdown-list {
+  padding: 0.5rem;
+  overflow-y: auto; /* Make the list scrollable */
+  flex-grow: 1; /* Allow list to take available space */
+}
+
+.alert-dropdown .alert-item {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 3px;
+  background-color: #f8f9fa; /* Light background for items */
+  border: 1px solid #eee;
+}
+.alert-dropdown .alert-item:last-child {
+  margin-bottom: 0;
+}
+
+
+.alert-dropdown .alert-icon {
+  font-size: 1.2rem;
+  margin-right: 0.6rem;
+}
+.alert-dropdown .alert-bin-near-full .alert-icon { color: #f1c40f; }
+.alert-dropdown .alert-truck-overloaded .alert-icon { color: #e74c3c; }
+
+
+.alert-dropdown .alert-content {
+  flex-grow: 1;
+}
+
+.alert-dropdown .alert-message {
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: #495057;
+  margin-bottom: 0.1rem;
+  line-height: 1.3;
+}
+
+.alert-dropdown .alert-timestamp {
+  font-size: 0.7rem;
+  color: #adb5bd;
+}
+
+.alert-dropdown .alert-resolve-btn {
+  background: none;
+  border: 1px solid var(--success-color);
+  color: var(--success-color);
+  border-radius: 50%; /* Make it circular */
+  padding: 0;
+  width: 24px; /* Fixed size */
+  height: 24px; /* Fixed size */
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.alert-dropdown .alert-resolve-btn:hover {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.alert-dropdown .no-alerts {
+  text-align: center;
+  padding: 1rem;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+.alert-dropdown .alert-error {
+  text-align: center;
+  padding: 1rem;
+  color: var(--danger-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+}

@@ -1,0 +1,218 @@
+/* ==============================
+   Container for the whole dashboard page
+   ============================== */
+.dashboard-page-wrapper {
+  padding: 1.5rem; /* Consistent padding */
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* ==============================
+   KPI Widget Row/Grid
+   ============================== */
+.kpi-widget-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Adjust min-width if needed */
+  gap: 1.5rem;
+  margin-bottom: 1.5rem; /* Space below KPIs */
+}
+
+/* ==============================
+   Main Dashboard Grid Layout (Map + Sidebar)
+   ============================== */
+.dashboard-grid-container {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); /* Map ~65%, Sidebar ~35% */
+  gap: 1.5rem;
+  min-height: 0;
+  height: 100%;
+}
+
+.dashboard-grid-container .page-container {
+  margin: 0;
+  padding: 1.5rem;
+  max-width: none;
+  overflow: hidden; /* Prevent charts overflowing */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* ==============================
+   Map and Sidebar Styles
+   ============================== */
+.map-container {
+  min-height: 650px; /* Ensure map container has enough height */
+  height: 100%;
+  flex-grow: 1;
+}
+
+.stats-sidebar h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  flex-shrink: 0;
+}
+
+.stats-sidebar > div {
+  flex-grow: 1;
+  min-height: 200px;
+  overflow: auto;
+}
+
+/* ==============================
+   Map Controls
+   ============================== */
+.map-controls {
+  display: flex;
+  gap: 0.8rem; /* Space between buttons */
+  align-items: center;
+  flex-wrap: wrap; /* Allow buttons to wrap if needed */
+}
+
+.sim-control-btn {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, opacity 0.2s;
+  font-weight: 500;
+}
+
+.sim-control-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #95a5a6 !important; /* Force grey background when disabled */
+  color: white !important;
+}
+
+.sim-pause {
+  background-color: var(--warning-color);
+  color: #333; /* Darker text on yellow */
+}
+.sim-pause:hover:not(:disabled) {
+  background-color: #d8ae00; /* Darker yellow */
+}
+
+.sim-resume {
+  background-color: var(--success-color);
+  color: white;
+}
+.sim-resume:hover:not(:disabled) {
+  background-color: #27ae60; /* Darker green */
+}
+
+.sim-tick {
+  background-color: var(--secondary-color);
+  color: white;
+}
+.sim-tick:hover:not(:disabled) {
+  background-color: #2980b9; /* Darker blue */
+}
+
+/* ==============================
+   Generate Route Button
+   ============================== */
+.generate-route-btn {
+  padding: 8px 12px; /* Match sim control padding */
+  font-size: 0.9rem;
+  cursor: pointer;
+  background-color: var(--success-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  transition: opacity 0.2s, background-color 0.2s;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.generate-route-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #95a5a6;
+}
+
+.generate-route-btn:hover:not(:disabled) {
+  background-color: #27ae60;
+}
+
+/* ==============================
+   Responsive Adjustments
+   ============================== */
+@media (max-width: 992px) {
+  .dashboard-grid-container {
+    grid-template-columns: 1fr; /* Stack vertically */
+  }
+
+  .map-container {
+    min-height: 500px; /* Adjust map height */
+    height: auto;
+  }
+
+  .stats-sidebar {
+    grid-row: 2; /* Ensure sidebar is below map */
+  }
+}
+
+@media (max-width: 768px) {
+  .kpi-widget-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .dashboard-page-wrapper,
+  .dashboard-grid-container .page-container {
+    padding: 1rem;
+  }
+
+  .dashboard-grid-container {
+    gap: 1rem;
+  }
+
+  /* Make map controls stack better */
+  .map-controls {
+    width: 100%;
+    justify-content: flex-start; /* Align left */
+    margin-top: 0.5rem;
+  }
+
+  .map-controls > button {
+    flex-grow: 0; /* Ensure buttons don't stretch */
+  }
+}
+
+/* ==============================
+   Recharts Tooltip Fix
+   ============================== */
+.recharts-tooltip-wrapper {
+  z-index: 1001 !important;
+}
+
+/* ==============================
+   Map Loading/Error States
+   ============================== */
+.map-loading,
+.map-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px; /* Match map height */
+  font-size: 1.2rem;
+  color: var(--text-muted-color);
+  background-color: var(--hover-bg-color);
+  border-radius: 8px;
+}
+
+.map-error {
+  color: var(--danger-color);
+}
+
+/* ==============================
+   Optional 5-column layout for large screens
+   ============================== */
+@media (min-width: 1200px) {
+  /* Uncomment if you want strict 5-column KPI layout */
+  /* .kpi-widget-container {
+      grid-template-columns: repeat(5, 1fr);
+  } */
+}

@@ -1,0 +1,80 @@
+/* Styling for the react-paginate component container */
+.pagination-container {
+  display: flex;
+  justify-content: center; /* Center pagination controls */
+  align-items: center;
+  list-style: none; /* Remove default bullet points */
+  padding: 0; /* Remove default padding */
+  margin-top: 2rem; /* Space above pagination */
+  margin-bottom: 1rem; /* Space below pagination */
+  flex-wrap: wrap; /* Allow controls to wrap on smaller screens */
+  gap: 0.3rem; /* Small gap between pagination items */
+}
+
+/* Styling for individual list items (<li>) */
+.page-item {
+  /* No specific styles needed here unless adding margins/paddings */
+}
+
+/* Styling for the links (<a> tags) inside list items */
+.page-link {
+  display: block; /* Make link fill the list item */
+  padding: 0.5rem 0.85rem; /* Padding inside each button */
+  margin: 0 0.1rem; /* Small horizontal margin between buttons */
+  border: 1px solid var(--border-color); /* Use theme border color */
+  border-radius: 4px; /* Rounded corners */
+  color: var(--secondary-color); /* Use theme secondary color for text */
+  background-color: var(--surface-color); /* Use theme surface color */
+  text-decoration: none; /* Remove underline */
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  font-size: 0.9rem;
+  user-select: none; /* Prevent text selection */
+}
+
+/* Hover effect for pagination links */
+.page-link:hover {
+  background-color: var(--hover-bg-color); /* Use theme hover color */
+  border-color: color-mix(in srgb, var(--border-color) 80%, black); /* Slightly darker border */
+}
+
+/* Styling for the active (current) page list item */
+.page-item.active .page-link {
+  background-color: var(--secondary-color); /* Use theme secondary color for background */
+  border-color: var(--secondary-color); /* Match border color */
+  color: white; /* White text on active page */
+  font-weight: bold;
+  cursor: default; /* Active page is not clickable */
+}
+/* Ensure hover doesn't override active style */
+.page-item.active .page-link:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+
+/* Styling for disabled Previous/Next buttons */
+.page-item.disabled .page-link {
+  color: var(--text-muted-color); /* Use theme muted color */
+  background-color: transparent; /* Or a lighter grey like var(--hover-bg-color) */
+  border-color: var(--border-color);
+  cursor: not-allowed; /* Indicate it's disabled */
+}
+/* Remove hover effect when disabled */
+.page-item.disabled .page-link:hover {
+    background-color: transparent;
+    border-color: var(--border-color);
+}
+
+
+/* Styling for break ('...') elements */
+.page-item.break .page-link {
+  border: none; /* No border for ellipsis */
+  background-color: transparent; /* No background */
+  color: var(--text-muted-color);
+  cursor: default; /* Not clickable */
+}
+/* Remove hover effect for ellipsis */
+.page-item.break .page-link:hover {
+    background-color: transparent;
+}
